@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A new Flutter project.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="campusbuzz">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="manifest" href="manifest.json">
+
+  <title>Upsthiti</title>
+
+  <!--  Firebase Messaging Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('firebase-messaging-sw.js')
+        .then(function(registration) {
+          console.log('Service Worker registration successful with scope:', registration.scope);
+        }).catch(function(err) {
+          console.error('Service Worker registration failed:', err);
+        });
+    }
+  </script>
+</head>
+<body>
+<!-- Splash Screen -->
+<div id="splash">
+  <style>
+    #splash {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #ffffff;
+    }
+    .loader {
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #4CAF50;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+
+  <div class="loader"></div>
+  <p>Loading App...</p>
+</div>
+
+<!-- Flutter bootstrap script -->
+<script src="flutter_bootstrap.js" async></script>
+
+<!-- Remove splash after Flutter starts -->
+<script>
+  window.addEventListener("flutter-first-frame", function () {
+    document.getElementById("splash").remove();
+  });
+</script>
+</body>
+
+</html>
