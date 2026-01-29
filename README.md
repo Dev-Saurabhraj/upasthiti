@@ -66,5 +66,5 @@ It allows teachers, students, and admins to interact seamlessly with attendance 
 
 ### 1. Clone the repo
 ```bash
-git clone https://github.com/Dev-saurabhrah/campus_buzz.git
-cd campus_buzz
+git clone https://github.com/Dev-saurabhrah/upasthiti.git
+cd upasthiti
